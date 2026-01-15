@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Rifadh | UCaaS & Infrastructure Support Engineer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #0f172a;      /* Slate 900 */
+            --accent: #2563eb;       /* Modern Blue */
+            --text-main: #334155;    /* Slate 700 */
+            --text-light: #f8fafc;
+            --bg-light: #f1f5f9;
+            --wa-green: #25d366;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.7;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .profile-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            padding: 5px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .role {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: var(--wa-green);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            filter: brightness(1.1);
+        }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            background: white;
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--bg-light);
+            padding-left: 2rem;
+            margin-left: 1rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-2rem - 6px);
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            outline: 4px solid white;
+        }
+
+        .job-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .company-name {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        /* --- CONTACT FLOAT --- */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--wa-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .wa-float:hover { transform: scale(1.1); }
+
+        footer {
+            background: var(--primary);
+            color: #94a3b8;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.link/pjixwn" class="wa-float" target="_blank" title="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header class="hero">
+        <div class="container" data-aos="zoom-in">
+            <div class="profile-wrapper">
+                <img src="your-photo.jpg" alt="Mohamed Rifadh" class="profile-img">
+            </div>
+            <h1>Mohamed Rifadh</h1>
+            <p class="role">UCaaS / Infrastructure Support Engineer @ <strong>vision plc</strong></p>
+            <div class="btn-group">
+                <a href="#experience" class="btn btn-primary">View Experience</a>
+                <a href="https://wa.link/pjixwn" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Me
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="container" data-aos="fade-up">
+        <h2 class="section-title">Professional Profile</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+            Experienced Network Engineer with a proven track record of implementing cost-effective solutions and achieving 
+            outstanding telecommunications results. Skilled in configurations, large-scale migrations, and multi-vendor 
+            environments (Cisco, Oracle Cloud). Dedicated to enhancing network capabilities and delivering exceptional service.
+        </p>
+    </section>
+
+    <section id="skills" style="background: #fafafa;">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Core Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Infrastructure</h3>
+                    <p>Planning & Design, Routing & Switching, Network Scaling, LAN/WAN.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-halved"></i>
+                    <h3>Security</h3>
+                    <p>Network Security, Configuration, Troubleshooting & Maintenance.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud & UCaaS</h3>
+                    <p>Oracle Cloud, Infrastructure Support, and Unified Communications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="container">
+        <h2 class="section-title" data-aos="fade-up">Career Journey</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="job-title">UCaaS / Infrastructure Support Engineer</div>
+                <div class="company-name">vision plc</div>
+                <div class="date">July 2025 — Present</div>
+                <p>Leading infrastructure support and UCaaS solutions delivery.</p>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="job-title">Network Engineer - Engineering Services</div>
+                <div class="company-name">Superloop (Australia) Pvt. Ltd.</div>
+                <div class="date">January 2023 — June 2025</div>
+                <p>Managed NBN Backhaul capacity, Cisco NCS devices, and large-scale residential fiber migrations.</p>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="job-title">Core Network Operation & Provisioning Engineer</div>
+                <div class="company-name">Exetel Communications</div>
+                <div class="date">April 2018 — January 2023</div>
+                <p>Managed 54+ data centre racks across Australia. Specialized in IPv4/IPv6 (OSPF & BGP).</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section style="background: var(--bg-light);">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Certifications</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <span class="btn" style="background:white; border: 1px solid #ddd; font-size: 0.9rem;">Cisco Certified Specialist</span>
+                <span class="btn" style="background:white; border: 1px solid #ddd; font-size: 0.9rem;">ISC² Cybersecurity</span>
+                <span class="btn" style="background:white; border: 1px solid #ddd; font-size: 0.9rem;">Oracle Cloud Specialist</span>
+                <span class="btn" style="background:white; border: 1px solid #ddd; font-size: 0.9rem;">CCNP (Cisco)</span>
+                <span class="btn" style="background:white; border: 1px solid #ddd; font-size: 0.9rem;">CCNA (Cisco)</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Mohamed Rifadh | Network Engineer</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">&copy; 2026 Personal Branding Website</p>
+            <div style="margin-top: 20px; font-size: 1.5rem;">
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    </script>
+</body>
+</html>
